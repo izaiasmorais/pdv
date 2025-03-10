@@ -36,7 +36,7 @@ const data = {
 	},
 	teams: [
 		{
-			name: "São Cristóvão",
+			name: " Baia's Grill",
 			logo: GalleryVerticalEnd,
 			plan: "Aberto",
 		},
@@ -61,14 +61,14 @@ const data = {
 		},
 		{
 			title: "Vendas",
-			url: "vendas",
+			url: "/vendas",
 			icon: Banknote,
 			isActive: false,
 			isPage: true,
 		},
 		{
 			title: "Chat Bot",
-			url: "chat-bot",
+			url: "/chat-bot",
 			icon: Bot,
 			isActive: false,
 			isPage: true,
@@ -77,20 +77,21 @@ const data = {
 			title: "Cadastro",
 			url: "#",
 			icon: Database,
+			isActive: false,
 			items: [
 				{
 					title: "Clientes",
-					url: "cadastro/clientes",
+					url: "/cadastro/clientes",
 					icon: Users,
 				},
 				{
 					title: "Produtos",
-					url: "cadastro/produtos",
+					url: "/cadastro/produtos",
 					icon: PackageSearch,
 				},
 				{
 					title: "Colaboradores",
-					url: "cadastro/colaboradores",
+					url: "/cadastro/colaboradores",
 					icon: UserCog,
 				},
 			],

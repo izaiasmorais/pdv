@@ -42,17 +42,24 @@ export function NavMain({
 			: "text-foreground/90";
 	}
 
+	function isDefaultOpen(title: string) {
+		if (pathname.includes(title.toLowerCase())) {
+			return true;
+		}
+	}
+
 	return (
 		<SidebarGroup>
 			<SidebarGroupLabel>Platform</SidebarGroupLabel>
+
 			<SidebarMenu>
 				{items.map((item) => {
 					if (item.isPage) {
 						return (
 							<SidebarMenuItem key={item.title}>
 								<SidebarMenuButton
-									tooltip={item.title}
 									asChild
+									tooltip={item.title}
 									className={`${isActive(item.url)}`}
 								>
 									<Link href={item.url}>
@@ -69,7 +76,7 @@ export function NavMain({
 						<Collapsible
 							key={item.title}
 							asChild
-							defaultOpen={item.isActive}
+							defaultOpen={isDefaultOpen(item.title)}
 							className="group/collapsible"
 						>
 							<SidebarMenuItem>
@@ -92,14 +99,22 @@ export function NavMain({
 									<SidebarMenuSub>
 										{item.items?.map((subItem) => (
 											<SidebarMenuSubItem key={subItem.title}>
-												<SidebarMenuSubButton asChild>
-													<div className="flex items-center gap-2">
-														{subItem.icon && <subItem.icon />}
+												<SidebarMenuSubButton
+													asChild
+													className={`${isActive(subItem.url)}`}
+												>
+													<Link href={subItem.url}>
+														{subItem.icon && (
+															<subItem.icon
+																className={`${
+																	pathname.includes(subItem.url) &&
+																	"!text-violet-700"
+																}`}
+															/>
+														)}
 
-														<a href={subItem.url}>
-															<span>{subItem.title}</span>
-														</a>
-													</div>
+														<span>{subItem.title}</span>
+													</Link>
 												</SidebarMenuSubButton>
 											</SidebarMenuSubItem>
 										))}

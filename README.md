@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PDV
 
-## Getting Started
+O melhor PDV para o seu negócio.
 
-First, run the development server:
+## Introdução
+
+![spine](https://github.com/user-attachments/assets/96e6942e-a246-4853-b1ee-a8ce9fe02959)
+
+<img src="https://img.shields.io/static/v1?label=STATUS&message=DEVELOPING&color=000&style=for-the-badge"/> <img src="https://img.shields.io/static/v1?label=NODE&message=V20.18.1&color=000&style=for-the-badge"/> <img src="https://img.shields.io/static/v1?label=LICENSE&message=MIT&color=000&style=for-the-badge"/>
+
+## Tecnologias
+
+- Linguagem: [TypeScript](https://www.typescriptlang.org/)
+- Biblioteca: [ReactJS](https://react.dev/)
+- Framework: [Next.js](https://nextjs.org/)
+- Componentes: [Shadcn-ui](https://ui.shadcn.com/)
+- Conexão com API: [Axios](https://axios-http.com/docs/intro)
+- Gerenciamento de estados http: [React Query](https://tanstack.com/query/latest/docs/framework/react/overview)
+- Gerenciamento de estados: [Zustand](https://zustand-demo.pmnd.rs/)
+- Gerenciamento de formulários: [React Hook Form](https://www.react-hook-form.com/)
+- Validação: [Zod](https://zod.dev/)
+- Pagamentos: [Stripe](https://stripe.com/)
+- Testes: [Playwirght](https://playwright.dev/)
+
+## Funcionalidades
+
+- [x] Listagem de Produtos
+- [ ] Autenticação via Clerk
+
+## Instalação
+
+Clone o repositório:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/izaiasmorais/pdv
+cd pdv
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Instale as dependências:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Configure o arquivo .env com suas credenciais:
 
-## Learn More
+```env
+ENV=
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Executando o Projeto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Inicie o servidor:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+pnpm dev
+```
 
-## Deploy on Vercel
+## Executando testes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Executar todos os testes no termial:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+pnpm test
+```
+
+Executar todos os testes através da UI do Playwright:
+
+```bash
+pnpm play
+```

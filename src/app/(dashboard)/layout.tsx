@@ -1,3 +1,4 @@
+"use client";
 import { AppSidebar } from "@/components/app-sidebar";
 import { Separator } from "@radix-ui/react-separator";
 import {
@@ -13,8 +14,11 @@ import {
 	SidebarInset,
 	SidebarTrigger,
 } from "@/components/ui/sidebar";
-
+import { usePathname } from "next/navigation";
 export default function AppLayout({ children }: { children: React.ReactNode }) {
+	const pathname = usePathname();
+	const pathSegments = pathname.split("/").filter(Boolean);
+
 	return (
 		<SidebarProvider>
 			<AppSidebar />
@@ -25,15 +29,33 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 						<Separator orientation="vertical" className="mr-2 h-4" />
 						<Breadcrumb>
 							<BreadcrumbList>
-								<BreadcrumbItem className="hidden md:block">
-									<BreadcrumbLink href="#">
-										Building Your Application
-									</BreadcrumbLink>
-								</BreadcrumbItem>
-								<BreadcrumbSeparator className="hidden md:block" />
-								<BreadcrumbItem>
-									<BreadcrumbPage>Data Fetching</BreadcrumbPage>
-								</BreadcrumbItem>
+								{pathSegments.map((segment, index) => {
+									if (index === pathSegments.length - 1) {
+										return (
+											<BreadcrumbItem key={segment}>
+												<BreadcrumbLink href={`${pathname}`}>
+													<span className="capitalize">{segment}</span>
+												</BreadcrumbLink>
+											</BreadcrumbItem>
+										);
+									}
+
+									if (index !== pathSegments.length - 1)
+										return (
+											<div key={segment} className="flex items-center gap-4">
+												<BreadcrumbItem className="hidden md:block">
+													<BreadcrumbPage>
+														<span className="capitalize">{segment}</span>
+													</BreadcrumbPage>
+												</BreadcrumbItem>
+
+												<BreadcrumbSeparator
+													className="hidden md:block"
+													key={segment}
+												/>
+											</div>
+										);
+								})}
 							</BreadcrumbList>
 						</Breadcrumb>
 					</div>

@@ -1,12 +1,5 @@
 "use client";
-import {
-	BadgeCheck,
-	Bell,
-	ChevronsUpDown,
-	CreditCard,
-	LogOut,
-	Sparkles,
-} from "lucide-react";
+import { BadgeCheck, ChevronsUpDown, LogOut } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
 	DropdownMenu,
@@ -46,7 +39,9 @@ export function NavUser({
 						>
 							<Avatar className="h-8 w-8 rounded-lg">
 								<AvatarImage src={user.avatar} alt={user.name} />
-								<AvatarFallback className="rounded-lg">{user.name[0]}</AvatarFallback>
+								<AvatarFallback className="rounded-lg">
+									{user.name[0]}
+								</AvatarFallback>
 							</Avatar>
 
 							<div className="grid flex-1 text-left text-sm leading-tight">
