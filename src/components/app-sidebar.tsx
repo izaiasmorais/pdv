@@ -3,19 +3,19 @@ import * as React from "react";
 import {
 	AudioWaveform,
 	Banknote,
-	BookOpen,
 	Bot,
 	Command,
 	Database,
 	GalleryVerticalEnd,
 	LayoutDashboard,
 	MonitorSmartphone,
+	PackageSearch,
 	Receipt,
 	Rocket,
 	Settings,
-	Settings2,
 	ShieldCheck,
-	SquareTerminal,
+	UserCog,
+	Users,
 } from "lucide-react";
 import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
@@ -61,8 +61,15 @@ const data = {
 		},
 		{
 			title: "Vendas",
-			url: "/vendas",
+			url: "vendas",
 			icon: Banknote,
+			isActive: false,
+			isPage: true,
+		},
+		{
+			title: "Chat Bot",
+			url: "chat-bot",
+			icon: Bot,
 			isActive: false,
 			isPage: true,
 		},
@@ -73,15 +80,18 @@ const data = {
 			items: [
 				{
 					title: "Clientes",
-					url: "#",
+					url: "cadastro/clientes",
+					icon: Users,
 				},
 				{
 					title: "Produtos",
-					url: "#",
+					url: "cadastro/produtos",
+					icon: PackageSearch,
 				},
 				{
 					title: "Colaboradores",
-					url: "#",
+					url: "cadastro/colaboradores",
+					icon: UserCog,
 				},
 			],
 		},

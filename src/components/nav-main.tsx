@@ -1,7 +1,5 @@
 "use client";
-
 import { ChevronRight, type LucideIcon } from "lucide-react";
-
 import {
 	Collapsible,
 	CollapsibleContent,
@@ -18,6 +16,7 @@ import {
 	SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function NavMain({
 	items,
@@ -31,9 +30,18 @@ export function NavMain({
 		items?: {
 			title: string;
 			url: string;
+			icon?: LucideIcon;
 		}[];
 	}[];
 }) {
+	const pathname = usePathname();
+
+	function isActive(url: string) {
+		return pathname.endsWith(url)
+			? "text-violet-700 hover:text-violet-700/80 dark:text-violet-800 bg-violet-50 hover:bg-violet-50/80 dark:bg-violet-950/50"
+			: "text-foreground/90";
+	}
+
 	return (
 		<SidebarGroup>
 			<SidebarGroupLabel>Platform</SidebarGroupLabel>
@@ -42,7 +50,11 @@ export function NavMain({
 					if (item.isPage) {
 						return (
 							<SidebarMenuItem key={item.title}>
-								<SidebarMenuButton tooltip={item.title} asChild>
+								<SidebarMenuButton
+									tooltip={item.title}
+									asChild
+									className={`${isActive(item.url)}`}
+								>
 									<Link href={item.url}>
 										{item.icon && <item.icon />}
 
@@ -81,9 +93,13 @@ export function NavMain({
 										{item.items?.map((subItem) => (
 											<SidebarMenuSubItem key={subItem.title}>
 												<SidebarMenuSubButton asChild>
-													<a href={subItem.url}>
-														<span>{subItem.title}</span>
-													</a>
+													<div className="flex items-center gap-2">
+														{subItem.icon && <subItem.icon />}
+
+														<a href={subItem.url}>
+															<span>{subItem.title}</span>
+														</a>
+													</div>
 												</SidebarMenuSubButton>
 											</SidebarMenuSubItem>
 										))}
