@@ -4,7 +4,7 @@ O melhor PDV para o seu negócio.
 
 ## Introdução
 
-![spine](https://github.com/user-attachments/assets/96e6942e-a246-4853-b1ee-a8ce9fe02959)
+![image](https://github.com/user-attachments/assets/99be07c3-6e86-472b-8ec7-574655c60621)
 
 <img src="https://img.shields.io/static/v1?label=STATUS&message=DEVELOPING&color=000&style=for-the-badge"/> <img src="https://img.shields.io/static/v1?label=NODE&message=V20.18.1&color=000&style=for-the-badge"/> <img src="https://img.shields.io/static/v1?label=LICENSE&message=MIT&color=000&style=for-the-badge"/>
 
