@@ -15,11 +15,10 @@ O melhor PDV para o seu negócio.
 - Framework: [Next.js](https://nextjs.org/)
 - Componentes: [Shadcn-ui](https://ui.shadcn.com/)
 - Conexão com API: [Axios](https://axios-http.com/docs/intro)
+- Gerenciamento de estados gloabais: [Zustand](https://zustand-demo.pmnd.rs/)
 - Gerenciamento de estados http: [React Query](https://tanstack.com/query/latest/docs/framework/react/overview)
-- Gerenciamento de estados: [Zustand](https://zustand-demo.pmnd.rs/)
 - Gerenciamento de formulários: [React Hook Form](https://www.react-hook-form.com/)
 - Validação: [Zod](https://zod.dev/)
-- Pagamentos: [Stripe](https://stripe.com/)
 - Testes: [Playwirght](https://playwright.dev/)
 
 ## Funcionalidades
