@@ -1,12 +1,12 @@
 # PDV
 
-O melhor PDV para o seu negócio.
+![image](https://github.com/user-attachments/assets/99be07c3-6e86-472b-8ec7-574655c60621)
 
 ## Introdução
 
-![image](https://github.com/user-attachments/assets/99be07c3-6e86-472b-8ec7-574655c60621)
+O melhor PDV para o seu negócio.
 
-<img src="https://img.shields.io/static/v1?label=STATUS&message=DEVELOPING&color=000&style=for-the-badge"/> <img src="https://img.shields.io/static/v1?label=NODE&message=V20.18.1&color=000&style=for-the-badge"/> <img src="https://img.shields.io/static/v1?label=LICENSE&message=MIT&color=000&style=for-the-badge"/>
+<img src="https://img.shields.io/static/v1?label=STATUS&message=DEVELOPING&color=724cff&style=for-the-badge"/> <img src="https://img.shields.io/static/v1?label=NODE&message=V20.18.1&color=724cff&style=for-the-badge"/> <img src="https://img.shields.io/static/v1?label=LICENSE&message=MIT&color=724cff&style=for-the-badge"/>
 
 ## Tecnologias
 
