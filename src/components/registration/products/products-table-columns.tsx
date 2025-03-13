@@ -1,6 +1,5 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ProductsTableItem } from "@/mocks/products";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown, MoreHorizontal } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -13,6 +12,19 @@ import {
 	DropdownMenuItem,
 	DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
+
+export type ProductsTableItem = {
+	id: string;
+	name: string;
+	onlinePricr: number;
+	pdvPrice: number;
+	type: string;
+	stock: number;
+	minStock: number;
+	maxStock: number;
+	isActive: boolean;
+	status: string;
+};
 
 export const productsTableColumns: ColumnDef<ProductsTableItem>[] = [
 	{

@@ -1,30 +1,21 @@
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown, MoreHorizontal } from "lucide-react";
+import { ArrowUpDown, Eye, SquarePen } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Switch } from "@/components/ui/switch";
-import {
-	DropdownMenu,
-	DropdownMenuTrigger,
-	DropdownMenuContent,
-	DropdownMenuLabel,
-	DropdownMenuItem,
-	DropdownMenuSeparator,
-} from "@/components/ui/dropdown-menu";
 
-export interface ClientTableItem {
+export interface CouponTableItem {
 	id: string;
 	name: string;
-	phone: string;
-	address: string;
-	neighborhood: string;
-	email: string;
-	tag: string;
+	value: string;
+	quantity: string;
+	remaining: string;
+	invested: string;
 	isActive: boolean;
+	validity: string;
 }
 
-export const clientsTableColumns: ColumnDef<ClientTableItem>[] = [
+export const couponsTableColumns: ColumnDef<CouponTableItem>[] = [
 	{
 		id: "select",
 		header: ({ table }) => (
@@ -64,84 +55,75 @@ export const clientsTableColumns: ColumnDef<ClientTableItem>[] = [
 		),
 	},
 	{
-		accessorKey: "phone",
+		accessorKey: "value",
 		header: ({ column }) => (
 			<Button
 				variant="ghost"
 				className="!p-0 hover:bg-transparent"
 				onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
 			>
-				Telefone
+				Valor
 				<ArrowUpDown className="ml-2 h-4 w-4" />
 			</Button>
 		),
-		cell: ({ row }) => (
-			<div className="capitalize">{row.getValue("phone")}</div>
-		),
+		cell: ({ row }) => <div>{row.getValue("value")}</div>,
 	},
 	{
-		accessorKey: "address",
+		accessorKey: "quantity",
 		header: ({ column }) => (
 			<Button
 				variant="ghost"
 				className="!p-0 hover:bg-transparent"
 				onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
 			>
-				Endereço
+				Quantidade
 				<ArrowUpDown className="ml-2 h-4 w-4" />
 			</Button>
 		),
-		cell: ({ row }) => (
-			<div className="capitalize">{row.getValue("address")}</div>
-		),
+		cell: ({ row }) => <div>{row.getValue("quantity")}</div>,
 	},
 	{
-		accessorKey: "neighborhood",
+		accessorKey: "remaining",
 		header: ({ column }) => (
 			<Button
 				variant="ghost"
 				className="!p-0 hover:bg-transparent"
 				onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
 			>
-				Bairro
+				Restante
 				<ArrowUpDown className="ml-2 h-4 w-4" />
 			</Button>
 		),
-		cell: ({ row }) => (
-			<div className="capitalize">{row.getValue("neighborhood")}</div>
-		),
+		cell: ({ row }) => <div>{row.getValue("remaining")}</div>,
 	},
 	{
-		accessorKey: "email",
+		accessorKey: "invested",
 		header: ({ column }) => (
 			<Button
 				variant="ghost"
 				className="!p-0 hover:bg-transparent"
 				onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
 			>
-				E-mail
+				Investido
 				<ArrowUpDown className="ml-2 h-4 w-4" />
 			</Button>
 		),
-		cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
+		cell: ({ row }) => <div>{row.getValue("invested")}</div>,
 	},
+
 	{
-		accessorKey: "tag",
+		accessorKey: "validity",
 		header: ({ column }) => (
 			<Button
 				variant="ghost"
 				className="!p-0 hover:bg-transparent"
 				onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
 			>
-				Tag
+				Validade
 				<ArrowUpDown className="ml-2 h-4 w-4" />
 			</Button>
 		),
-		cell: ({ row }) => (
-			<Badge className="rounded-full text-muted-foreground shadow-none bg-muted hover:bg-muted capitalize">
-				{row.getValue("tag")}
-			</Badge>
-		),
+		cell: ({ row }) => <div>{row.getValue("validity")}</div>,
 	},
 	{
 		accessorKey: "isActive",
@@ -155,33 +137,40 @@ export const clientsTableColumns: ColumnDef<ClientTableItem>[] = [
 		),
 	},
 	{
-		id: "actions",
+		id: "copyLink",
+		header: "Link",
 		enableHiding: false,
 		cell: ({ row }) => {
-			const client = row.original;
+			const coupon = row.original;
 			return (
-				<DropdownMenu>
-					<DropdownMenuTrigger asChild>
-						<Button variant="ghost" className="h-8 w-8 p-0">
-							<span className="sr-only">Abrir Menu</span>
-							<MoreHorizontal className="h-4 w-4" />
-						</Button>
-					</DropdownMenuTrigger>
-					<DropdownMenuContent align="end">
-						<DropdownMenuLabel>Ações</DropdownMenuLabel>
-						<DropdownMenuItem
-							onClick={() => navigator.clipboard.writeText(client.id)}
-						>
-							Copiar ID do cliente
-						</DropdownMenuItem>
-						<DropdownMenuSeparator />
-						<DropdownMenuItem>Ver detalhes</DropdownMenuItem>
-						<DropdownMenuItem>Editar</DropdownMenuItem>
-					</DropdownMenuContent>
-				</DropdownMenu>
+				<Button
+					variant="outline"
+					className="h-8 py-1 px-2 text-xs"
+					onClick={() => navigator.clipboard.writeText(coupon.id)}
+				>
+					Copiar
+				</Button>
 			);
 		},
 	},
+	{
+		id: "details",
+		header: "Detalhes",
+		enableHiding: false,
+		cell: () => (
+			<Button variant="outline" className="p-0 ">
+				<Eye />
+			</Button>
+		),
+	},
+	{
+		id: "edit",
+		header: "Editar",
+		enableHiding: false,
+		cell: () => (
+			<Button variant="outline" className="p-0">
+				<SquarePen />
+			</Button>
+		),
+	},
 ];
-
-export default clientsTableColumns;

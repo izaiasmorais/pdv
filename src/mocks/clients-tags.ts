@@ -6,12 +6,9 @@ export interface TagItem {
 
 // Mock data for client tags
 export const clientTags: TagItem[] = [
-	{ value: "Açúcar", label: "Açúcar" },
-	{ value: "Cliente", label: "Cliente" },
-	{ value: "VIP", label: "VIP" },
-	{ value: "Novo", label: "Novo" },
-	{ value: "Frequente", label: "Frequente" },
+	{ value: "Premium", label: "Premium" },
+	{ value: "Regular", label: "Regular" },
+	{ value: "Inativo", label: "Inativo" },
+	{ value: "Potencial", label: "Potencial" },
+	{ value: "Leal", label: "Leal" },
 ];
-
-// Export the clientTags array as the default export
-export default clientTags;

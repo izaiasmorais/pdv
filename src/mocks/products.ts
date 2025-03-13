@@ -1,15 +1,4 @@
-export type ProductsTableItem = {
-	id: string;
-	name: string;
-	onlinePricr: number;
-	pdvPrice: number;
-	type: string;
-	stock: number;
-	minStock: number;
-	maxStock: number;
-	isActive: boolean;
-	status: string;
-};
+import type { ProductsTableItem } from "@/components/registration/products/products-table-columns";
 
 export const products: ProductsTableItem[] = [
 	{

@@ -3,19 +3,20 @@
  * @param key - The column key to translate
  * @returns The translated column name in Portuguese
  */
-export function translateClientsTableKeys(key: string): string {
+export function translateCouponsTableKeys(key: string): string {
 	const translations: Record<string, string> = {
+		select: "Selecionar",
 		name: "Nome",
-		phone: "Telefone",
-		address: "Endereço",
-		neighborhood: "Bairro",
-		email: "E-mail",
-		tag: "Tag",
+		value: "Valor",
+		quantity: "Quantidade",
+		remaining: "Restante",
+		invested: "Investido",
 		isActive: "Ativo",
-		actions: "Ações",
+		validity: "Validade",
+		copyLink: "Link",
+		details: "Detalhes",
+		edit: "Editar",
 	};
 
 	return translations[key] || key.charAt(0).toUpperCase() + key.slice(1);
 }
-
-export default translateClientsTableKeys;
