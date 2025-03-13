@@ -34,7 +34,7 @@ interface ComboboxProps<TFieldValues extends FieldValues> {
 	form: UseFormReturn<TFieldValues>;
 }
 
-export function Combobox<TFieldValues extends FieldValues>({
+export function FormCombobox<TFieldValues extends FieldValues>({
 	options,
 	form,
 	entity,

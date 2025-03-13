@@ -18,7 +18,9 @@ export default function RootLayout({
 			className={GeistSans.className}
 			suppressHydrationWarning={true}
 		>
-			<body className="antialised">{children}</body>
+			<body className="antialised vsc-initialized" cz-shortcut-listen="true">
+				{children}
+			</body>
 		</html>
 	);
 }
